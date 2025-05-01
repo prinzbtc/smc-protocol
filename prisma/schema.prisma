@@ -1,0 +1,122 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// Article model for financial content
+model Article {
+  id          String    @id @default(uuid())
+  title       String
+  slug        String    @unique
+  content     String
+  summary     String
+  category    String    // e.g., "crypto", "stocks", "macro"
+  isPremium   Boolean   @default(true)
+  thumbnailUrl String?  // URL to the article thumbnail image
+  publishedAt DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  accessLogs  AccessLog[]
+}
+
+// Report model for treasury reports
+model Report {
+  id          String    @id @default(uuid())
+  title       String
+  slug        String    @unique
+  content     String
+  summary     String
+  thumbnailUrl String?  // URL to the report thumbnail image
+  publishedAt DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+}
+
+// Treasury data model
+model Treasury {
+  id              String    @id @default(uuid())
+  address         String    @unique // Treasury wallet address
+  netAssetValue   Float     // Current NAV in USD
+  updatedAt       DateTime  @updatedAt
+  createdAt       DateTime  @default(now())
+  tokens          Token[]   // Tokens held by the treasury
+  updates         TreasuryUpdate[]
+}
+
+// Token model for treasury holdings
+model Token {
+  id              String    @id @default(uuid())
+  treasury        Treasury  @relation(fields: [treasuryId], references: [id], onDelete: Cascade)
+  treasuryId      String
+  mint            String    // Token mint address
+  symbol          String    // Token symbol (e.g., SOL, USDC)
+  name            String    // Token name (e.g., Solana, USD Coin)
+  amount          Float     // Token amount
+  usdValue        Float     // USD value of the token
+  logoURI         String?   // Optional logo URL
+  color           String?   // Color for UI display
+  isAutoUpdated   Boolean   @default(false) // Whether this token is auto-updated (SOL, USDC)
+  updatedAt       DateTime  @updatedAt
+  createdAt       DateTime  @default(now())
+  
+  @@unique([treasuryId, mint]) // Each token mint should be unique per treasury
+}
+
+// Treasury update history
+model TreasuryUpdate {
+  id              String    @id @default(uuid())
+  treasury        Treasury  @relation(fields: [treasuryId], references: [id], onDelete: Cascade)
+  treasuryId      String
+  date            DateTime  @default(now())
+  netAssetValue   Float     // NAV at this update
+  previousNAV     Float?    // Previous NAV
+  percentChange   Float?    // Percent change
+  snapshot        Json      // JSON snapshot of all tokens at this time
+  transactions    Transaction[]
+}
+
+// Transaction records for treasury activities
+model Transaction {
+  id              String          @id @default(uuid())
+  treasuryUpdate  TreasuryUpdate  @relation(fields: [treasuryUpdateId], references: [id])
+  treasuryUpdateId String
+  date            DateTime        @default(now())
+  type            String          // "buy", "sell", "swap"
+  assetIn         String?         // Asset received (null for sells)
+  amountIn        Float?          // Amount received
+  assetOut        String?         // Asset spent (null for buys)
+  amountOut       Float?          // Amount spent
+  priceUSD        Float           // Price in USD at transaction time
+  txHash          String?         // Solana transaction hash
+}
+
+// Access logs for article views
+model AccessLog {
+  id          String    @id @default(uuid())
+  article     Article   @relation(fields: [articleId], references: [id])
+  articleId   String
+  walletAddress String?  // Wallet address of viewer (if connected)
+  accessType  String    // "token" (SMC holder) or "payment" (SOL payment)
+  paymentAmount Float?   // Amount of SOL paid (if payment type)
+  paymentTxHash String?  // Transaction hash for payment
+  timestamp   DateTime  @default(now())
+  ipAddress   String?   // Optional for analytics
+  userAgent   String?   // Optional for analytics
+}
+
+// User settings and preferences
+model UserPreference {
+  walletAddress String    @id // Solana wallet address
+  email         String?   // Optional email for notifications
+  notifyOnNewArticle Boolean @default(false)
+  notifyOnTreasuryUpdate Boolean @default(false)
+  lastLogin     DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}

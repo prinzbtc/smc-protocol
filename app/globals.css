@@ -1,26 +1,304 @@
-@import "tailwindcss";
+/* Import EB Garamond from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Increase base font size by 25% */
+html {
+  font-size: 125%;
+}
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  --primary: #000080; /* Navy blue - classic 90s color */
+  --primary-dark: #000066;
+  --secondary: #800000; /* Maroon - classic 90s color */
+  --secondary-dark: #660000;
+  --accent: #808080; /* Gray - classic 90s color */
+  --accent-dark: #666666;
+  --link: #0000FF; /* Classic blue links */
+  --link-visited: #800080; /* Classic purple visited links */
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* No dark mode for 90s style websites with vaporwave touch */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Media queries for responsive design */
+@media (max-width: 768px) {
+  body {
+    font-size: 20px; /* Increased by 25% from 16px */
+    overflow-x: hidden;
+  }
+  
+  .max-w-6xl, .max-w-7xl {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .wallet-adapter-button {
+    font-size: 15px !important; /* Increased by 25% from 12px */
+    padding: 5px 10px !important; /* Increased padding */
+  }
+  
+  nav .flex-row {
+    flex-direction: row !important;
+    gap: 0.5rem;
+  }
+  
+  nav .h-16 {
+    height: 3rem;
+  }
+  
+  nav img {
+    max-width: 180px;
+    height: auto;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'EB Garamond', Times, serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
 }
+
+/* Classic 90s table-based layout styling */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  padding: 4px 8px;
+  vertical-align: top;
+}
+
+/* Classic 90s links */
+a {
+  color: var(--link);
+  text-decoration: underline;
+}
+
+a:visited {
+  color: var(--link-visited);
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* Custom styling for wallet adapter to match 90s aesthetic */
+.wallet-adapter-button {
+  background-color: #d3d3d3 !important;
+  color: #000000 !important;
+  font-family: 'EB Garamond', Times, serif !important;
+  border: 2px outset #a9a9a9 !important; /* Classic button border */
+  border-radius: 0 !important;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2) !important;
+  cursor: pointer !important;
+  padding: 8px 15px !important; /* Increased padding */
+  font-size: 17px !important; /* Increased by 25% from 14px */
+  text-transform: uppercase !important;
+  transition: none !important;
+  max-width: 100% !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+/* Custom blue connect button */
+nav .wallet-button.wallet-adapter-button {
+  background-color: #0e3d64 !important;
+  color: white !important;
+  border: none !important;
+  margin-top: 1rem !important;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) !important;
+}
+
+nav .wallet-button.wallet-adapter-button:hover {
+  background-color: #0a2d4a !important;
+}
+
+.wallet-adapter-button:hover {
+  background-color: #c0c0c0 !important; /* Slightly darker gray on hover */
+}
+
+.wallet-adapter-button:active {
+  border-style: inset !important; /* Classic pressed button effect */
+}
+
+.wallet-adapter-dropdown-list {
+  background-color: #ffffff !important;
+  border: 2px solid #a9a9a9 !important;
+  border-radius: 0 !important;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2) !important;
+  max-width: 100% !important;
+  z-index: 999 !important;
+}
+
+.wallet-adapter-dropdown-list-item {
+  color: #000000 !important;
+  font-family: 'EB Garamond', Times, serif !important;
+  border-bottom: 1px solid #d3d3d3 !important;
+}
+
+.wallet-adapter-dropdown-list-item:hover {
+  background-color: #d3d3d3 !important;
+}
+
+/* Custom components */
+/* Using regular CSS instead of Tailwind @apply to fix build errors */
+  .btn-primary {
+    background-color: #d3d3d3;
+    color: #000000;
+    font-weight: normal;
+    padding: 0.3rem 0.9rem; /* Increased padding */
+    border: 2px outset #a9a9a9;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-primary:hover {
+    background-color: #c0c0c0;
+  }
+  
+  .btn-primary:active {
+    border-style: inset;
+  }
+  
+  .btn-secondary {
+    background-color: #f0f0f0;
+    color: #000000;
+    font-weight: normal;
+    padding: 0.3rem 0.9rem; /* Increased padding */
+    border: 2px outset #a9a9a9;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-secondary:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .btn-secondary:active {
+    border-style: inset;
+  }
+  
+  .btn-outline {
+    background-color: #ffffff;
+    color: #000000;
+    font-weight: normal;
+    padding: 0.3rem 0.9rem; /* Increased padding */
+    border: 2px outset #a9a9a9;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .btn-outline:hover {
+    background-color: #f0f0f0;
+  }
+  
+  .btn-outline:active {
+    border-style: inset;
+  }
+  
+  .card {
+    background-color: #ffffff;
+    border: 1px solid #a9a9a9;
+    overflow: hidden;
+  }
+  
+  .card-header {
+    padding: 0.5rem 1rem;
+    background-color: #d3d3d3;
+    border-bottom: 1px solid #a9a9a9;
+  }
+  
+  .card-body {
+    padding: 0.5rem 1rem;
+  }
+  
+  .card-footer {
+    padding: 0.5rem 1rem;
+    background-color: #f0f0f0;
+    border-top: 1px solid #a9a9a9;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #a9a9a9;
+    background-color: #ffffff;
+    color: #000000;
+  }
+  
+  .label {
+    display: block;
+    font-size: 1rem;
+    font-weight: normal;
+    color: #000000;
+    margin-bottom: 0.25rem;
+  }
+  
+  /* 90s decorative elements */
+  .hr-gradient {
+    height: 2px;
+    background: linear-gradient(to right, #000080, #ffffff, #800000);
+    border: none;
+    margin: 16px 0;
+  }
+  
+  .retro-container {
+    border: 2px solid #0e3d64;
+    border-radius: 0;
+    box-shadow: 5px 5px 0px #0e3d64;
+    background-color: #ffffff;
+    margin: 20px 15px;
+    max-width: calc(100% - 30px);
+  }
+  
+  .article-container {
+    padding: 0 80px;
+  }
+  
+  .retro-header {
+    background-color: #0e3d64;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 0.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .blink {
+    animation: blink-animation 1s steps(2, start) infinite;
+  }
+  
+  @keyframes blink-animation {
+    to {
+      visibility: hidden;
+    }
+  }
+  
+  /* Text color classes */
+  .text-black {
+    color: #000000;
+  }
+  
+  .text-white {
+    color: #ffffff;
+  }
+  
+  /* Background color classes */
+  .bg-white {
+    background-color: #ffffff;
+  }
+  
+  .bg-black {
+    background-color: #000000;
+  }

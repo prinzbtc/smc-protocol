@@ -1,0 +1,158 @@
+.rich-text-editor {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.25rem;
+  overflow: hidden;
+}
+
+.menu-bar {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  background-color: #f7fafc;
+}
+
+.toolbar-group {
+  display: flex;
+  margin-right: 0.5rem;
+  border-right: 1px solid #e2e8f0;
+  padding-right: 0.5rem;
+}
+
+.toolbar-group:last-child {
+  border-right: none;
+}
+
+.menu-bar button {
+  background-color: transparent;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  margin-right: 0.25rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+  color: #4a5568;
+}
+
+.menu-bar button:hover {
+  background-color: #edf2f7;
+}
+
+.menu-bar button.is-active {
+  background-color: #e2e8f0;
+  color: #2d3748;
+}
+
+.menu-bar button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.ProseMirror {
+  padding: 1rem;
+  min-height: 400px;
+  outline: none;
+}
+
+.ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: #adb5bd;
+  pointer-events: none;
+  height: 0;
+}
+
+/* Table styles */
+.ProseMirror table {
+  border-collapse: collapse;
+  margin: 0;
+  overflow: hidden;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.ProseMirror table td,
+.ProseMirror table th {
+  border: 1px solid #e2e8f0;
+  box-sizing: border-box;
+  min-width: 1em;
+  padding: 0.5rem;
+  position: relative;
+  vertical-align: top;
+}
+
+.ProseMirror table th {
+  background-color: #f7fafc;
+  font-weight: bold;
+  text-align: left;
+}
+
+.ProseMirror table .selectedCell:after {
+  background: rgba(200, 200, 255, 0.4);
+  content: "";
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+}
+
+.ProseMirror blockquote {
+  border-left: 3px solid #e2e8f0;
+  padding-left: 1rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.ProseMirror pre {
+  background: #f7fafc;
+  border-radius: 0.25rem;
+  color: #2d3748;
+  font-family: monospace;
+  padding: 0.75rem 1rem;
+  overflow-x: auto;
+}
+
+.ProseMirror code {
+  background: #f7fafc;
+  border-radius: 0.25rem;
+  padding: 0.25rem;
+  font-family: monospace;
+}
+
+.ProseMirror img {
+  max-width: 100%;
+  height: auto;
+}
+
+.ProseMirror a {
+  color: #4299e1;
+  text-decoration: underline;
+}
+
+/* Retro style overrides to match the admin theme */
+.rich-text-editor {
+  border: 1px solid #000;
+}
+
+.menu-bar {
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #000;
+}
+
+.menu-bar button {
+  border: 1px solid #000;
+  background-color: #fff;
+}
+
+.menu-bar button:hover {
+  background-color: #e0e0e0;
+}
+
+.menu-bar button.is-active {
+  background-color: #d0d0d0;
+}
