@@ -81,7 +81,7 @@ let cachedSolUsdcData: {
 // Function to fetch SOL and USDC data from APIs
 async function fetchSolAndUsdcData(): Promise<{ solToken: TokenData | null; usdcToken: TokenData | null } | null> {
   try {
-    const treasuryAddress = process.env.NEXT_PUBLIC_TREASURY_ADDRESS || '8CzQcMERqyZRUE6DTGophorgy46gqaSWqDmLmUo2LjzJ';
+    const treasuryAddress = process.env.NEXT_PUBLIC_TREASURY_ADDRESS || process.env.TREASURY_WALLET_PUBKEY || 'YOUR_TREASURY_WALLET_ADDRESS';
     if (!treasuryAddress) {
       console.error('Treasury address not set');
       return null;
@@ -192,7 +192,7 @@ export async function GET() {
     
     // Initialize response data
     let manualTokens = [];
-    let treasuryAddress = process.env.NEXT_PUBLIC_TREASURY_ADDRESS || '8CzQcMERqyZRUE6DTGophorgy46gqaSWqDmLmUo2LjzJ';
+    let treasuryAddress = process.env.NEXT_PUBLIC_TREASURY_ADDRESS || process.env.TREASURY_WALLET_PUBKEY || 'YOUR_TREASURY_WALLET_ADDRESS';
     let dbSuccess = false;
     
     // Try to get manual tokens from database first

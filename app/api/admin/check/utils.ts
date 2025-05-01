@@ -2,7 +2,7 @@
 const ADMIN_WALLETS: string[] = [
   // Add your admin wallet addresses here
   // For example:
-  // "8CzQcMERqyZRUE6DTGophorgy46gqaSWqDmLmUo2LjzJ"
+  // "YourWalletAddressHere"
 ];
 
 /**

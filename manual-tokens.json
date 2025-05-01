@@ -1,0 +1,41 @@
+{
+  "address": "YOUR_TREASURY_WALLET_ADDRESS",
+  "tokens": [
+    {
+      "mint": "6JGSHS9GrE9uG8ix63w3DPMYHrgrJ6J4QyHbBhAepump",
+      "symbol": "CRASHOUT",
+      "name": "Crashout",
+      "amount": 77905.51,
+      "usdValue": 210.5,
+      "logoURI": "",
+      "color": "hsl(16, 70%, 60%)"
+    },
+    {
+      "mint": "C7heQqfNzdMbUFQwcHkL9FvdwsFsDRBnfwZDDyWYCLTZ",
+      "symbol": "COLLAT",
+      "name": "Collaterize",
+      "amount": 20279.81,
+      "usdValue": 215.56,
+      "logoURI": "",
+      "color": "hsl(132, 70%, 60%)"
+    },
+    {
+      "mint": "Hjw6bEcHtbHGpQr8onG3izfJY5DJiWdt7uk2BfdSpump",
+      "symbol": "SNAI",
+      "name": "SwarmNode",
+      "amount": 5105,
+      "usdValue": 89.73,
+      "logoURI": "",
+      "color": "hsl(189, 70%, 60%)"
+    },
+    {
+      "mint": "2Xf4kHq69r4gh763aTGN82XvYzPMhXrRhAEJ29trpump",
+      "symbol": "NEWP",
+      "name": "New Project Zero",
+      "amount": 214270.16,
+      "usdValue": 64.6,
+      "logoURI": "",
+      "color": "hsl(57, 70%, 60%)"
+    }
+  ]
+}
