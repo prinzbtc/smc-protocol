@@ -1,0 +1,7 @@
+{
+  "name": "Smart Money Coin",
+  "symbol": "SMC",
+  "description": "A personal hedgefund protocol on Solana.",
+  "image": "https://raw.githubusercontent.com/prinzbtc/smc-protocol/main/public/smcprotocol-square.png",
+  "decimals": 9
+}
