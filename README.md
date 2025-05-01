@@ -1,21 +1,23 @@
-# Smart Money Capital Protocol
+# SMC Protocol
 
-Smart Money Capital (SMC) is a decentralized personal hedge fund protocol built on Solana, designed to empower individuals to manage, grow, and tokenize their trading performance. This platform seamlessly blends active treasury management with community-facing utility by combining asset trading, transparent financial reporting, and exclusive access to daily financial content.
+A Framework to create your own personal hedge fund on Solana.
+
+SMC Protocol is a decentralized personal hedge fund framework built on Solana, designed to empower individuals to manage, grow, and tokenize their trading performance. This platform seamlessly blends active treasury management with community-facing utility by combining asset trading, transparent financial reporting, and exclusive access to daily financial content.
 
 ## Features
 
-- **Personal Hedge Fund**: SMC's treasury is actively managed to optimize for growth, focusing on promising crypto assets.
-- **Transparent NAV**: Live updates of Smart Money Capital's Net Asset Value and portfolio holdings.
-- **Token-Gated Financial Content**: Users holding $SMC tokens (or paying in SOL) can access exclusive financial research articles.
-- **Open Market Speculation**: $SMC tokens are freely tradable on DEXes, enabling organic price discovery.
-- **Automated Financial Publishing**: Cutting-edge AI (LLMs) are used to automate the generation of high-quality financial articles daily.
+- **Personal Hedge Fund**: Create and manage your own treasury to optimize for growth, focusing on promising crypto assets.
+- **Transparent NAV**: Live updates of your fund's Net Asset Value and portfolio holdings.
+- **Token-Gated Financial Content**: Allow users holding your tokens (or paying in SOL) to access exclusive financial research articles.
+- **Open Market Speculation**: Make your tokens freely tradable on DEXes, enabling organic price discovery.
+- **Automated Financial Publishing**: Leverage cutting-edge AI (LLMs) to automate the generation of high-quality financial articles daily.
 
 ## Tech Stack
 
 - **Frontend**: NextJS (React-based) + TypeScript, TailwindCSS
 - **Wallet Integration**: Solana Wallet Adapter (Phantom, Backpack, Solflare)
 - **Backend**: NextJS API routes, Prisma + PostgreSQL
-- **Smart Contracts**: SPL Token standard for $SMC
+- **Smart Contracts**: SPL Token standard for your fund's token
 - **AI and Automation**: OpenAI GPT-4 API for article generation
 
 ## Environment Variables
@@ -35,8 +37,8 @@ OPENAI_API_KEY="your-openai-api-key"
 # Treasury wallet public key
 TREASURY_WALLET_PUBKEY="your-treasury-wallet-public-key"
 
-# SMC token mint address
-SMC_TOKEN_MINT="your-smc-token-mint-address"
+# Your fund's token mint address
+TOKEN_MINT="your-token-mint-address"
 ```
 
 ## Getting Started
