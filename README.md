@@ -1,18 +1,26 @@
 # SMC Protocol
 
+<p align="center">
+  <img src="public/smcprotocol-square.png" alt="SMC Protocol Logo" width="200"/>
+</p>
+
 ## Introduction
 
-SMC Protocol is a personal hedge fund framework built on Solana, designed to let individuals manage, grow, and tokenize their trading performance. This platform blends active treasury management with community-facing utility by combining asset trading, financial reporting, and access to daily financial content.
+The SMC Protocol is a personal hedge fund framework built on Solana, designed to let individuals manage, grow, and tokenize their trading performance. This platform blends active treasury management with community-facing utility by combining asset trading, financial reporting, and access to daily financial content.
+
+To see a live example of this framework in action, check out [Smart Money Capital](https://www.smartmoneycapital.xyz/), which is our very own implementation of the SMC Protocol.
 
 > **IMPORTANT NOTE**: This is a fairly new project and is still in development. Some features are still in beta. You may need to make adjustments to fit your specific requirements.
+
+**ALSO**: If you managed to run this framework and came up with a cool iteration, please send SOL or any valuable SPL cryptocurrency to our treasury wallet (8CzQcMERqyZRUE6DTGophorgy46gqaSWqDmLmUo2LjzJ) to manifest your gratitude.
 
 ## Features
 
 - **Personal Hedge Fund**: Create and manage your own treasury to optimize for growth, focusing on promising crypto assets.
-- **Transparent NAV**: Live updates of your fund's Net Asset Value and portfolio holdings through either API integration or manual tracking via the admin panel.
+- **Transparent NAV**: Live updates of your fund's Net Asset Value and portfolio holdings through either API integration (you'll need a Birdeye paid plan and an API key for that) or manual tracking via the admin panel (painful solution if you're broke).
 - **Token-Gated Financial Content**: Allow users holding your token (or paying in SOL) to access exclusive financial research articles.
 - **Open Market Speculation**: Make your token freely tradable on DEXes, enabling organic price discovery.
-- **Automated Financial Publishing**: Leverage AI to automate the generation of high-quality financial articles.
+- **Automated Financial Publishing**: Leverage AI to automate the generation of high-quality financial articles. You'll need an OpenAI API key and a OpenAI paid plan (or any other LLM API) for this feature.
 
 ## Tech Stack
 
