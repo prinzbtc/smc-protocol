@@ -3,5 +3,22 @@
   "symbol": "SMC",
   "description": "A personal hedgefund protocol on Solana.",
   "image": "https://raw.githubusercontent.com/prinzbtc/smc-protocol/main/public/smcprotocol-square.png",
-  "decimals": 9
+  "decimals": 9,
+  "website": "https://smartmoneycapital.xyz",
+  "github": "https://github.com/prinzbtc/smc-protocol",
+  "twitter": "https://twitter.com/smartmoneycap",
+  "links": [
+    {
+      "name": "GitHub",
+      "url": "https://github.com/prinzbtc/smc-protocol"
+    },
+    {
+      "name": "Website",
+      "url": "https://smartmoneycapital.xyz"
+    },
+    {
+      "name": "Solscan",
+      "url": "https://solscan.io/token/4Wy5iUUtXFx8oyPU7bMz6uzzyGpk2vDQySh7huEPF7aN"
+    }
+  ]
 }
