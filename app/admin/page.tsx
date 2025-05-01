@@ -96,6 +96,22 @@ const AdminDashboard: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6">Admin Dashboard</h1>
         
+        {/* Setup Instructions */}
+        <div className="retro-container mb-6">
+          <div className="retro-header">SMC Protocol Admin Setup</div>
+          <div className="p-6">
+            <p className="mb-4 text-[#0e3d64]">Welcome to the SMC Protocol admin dashboard. This interface allows you to manage your fund's content and treasury data.</p>
+            <div className="bg-blue-50 border border-blue-200 rounded p-4 mb-4">
+              <h3 className="font-bold text-[#0e3d64] mb-2">⚠️ Important: Configure Admin Access</h3>
+              <p className="text-[#0e3d64] mb-2">By default, only the wallet that deployed this application has admin access. To configure admin access:</p>
+              <ol className="list-decimal list-inside text-[#0e3d64] ml-4 space-y-1">
+                <li>Edit the <code className="bg-gray-100 px-1 rounded">/app/api/admin/check/route.ts</code> file</li>
+                <li>Add your wallet address to the <code className="bg-gray-100 px-1 rounded">ADMIN_WALLETS</code> array</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
           <div className="retro-container">
             <div className="retro-header">Content Management</div>
@@ -135,14 +151,20 @@ const AdminDashboard: React.FC = () => {
               <p className="mb-2"><strong>Wallet:</strong> {publicKey?.toString()}</p>
               <p className="mb-2"><strong>Status:</strong> Admin</p>
               <p className="mb-4"><strong>Last Login:</strong> {new Date().toLocaleString()}</p>
+              <p className="text-sm text-gray-600 mt-4">To customize this dashboard for your fund, edit the files in the <code className="bg-gray-100 px-1 rounded">/app/admin</code> directory.</p>
             </div>
           </div>
         </div>
         
         <div className="retro-container mb-6">
-          <div className="retro-header">Recent Activity</div>
+          <div className="retro-header">Getting Started</div>
           <div className="p-4">
-            <p className="text-center">No recent activity to display.</p>
+            <ol className="list-decimal list-inside text-[#0e3d64] ml-4 space-y-2">
+              <li>Configure your treasury wallet address in <code className="bg-gray-100 px-1 rounded">.env</code></li>
+              <li>Update your fund's branding in the Navbar and Footer components</li>
+              <li>Create your first article or report to showcase your fund's expertise</li>
+              <li>Set up your treasury data to display your fund's holdings</li>
+            </ol>
           </div>
         </div>
       </div>

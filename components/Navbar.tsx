@@ -74,15 +74,21 @@ const Navbar: FC = () => {
           <div className="flex justify-center md:justify-start w-full md:w-auto py-2">
             <Link href="/" className="flex items-center no-underline">
               <div className="h-12 md:h-16 relative">
+                {/* Replace with your own logo */}
+                <div className="text-[#0e3d64] font-bold text-2xl md:text-3xl">
+                  SMC Protocol
+                </div>
+                {/* Uncomment and update this when you have your own logo
                 <Image
-                  src="/SmartMoney.png"
-                  alt="Smart Money Capital Logo"
+                  src="/YourLogo.png"
+                  alt="Your Fund Name"
                   width={390}
                   height={65}
                   className="object-contain"
                   style={{ maxWidth: '100%', height: 'auto' }}
                   priority
                 />
+                */}
               </div>
             </Link>
           </div>

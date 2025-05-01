@@ -1,20 +1,18 @@
 # SMC Protocol
 
-IMPORTANT NOTE : This is a fairly new project and is still in development. Some features are still a bit shaky. You'll probably need to tweak a thing or two to get it working. 
-
-ALSO : If you managed to use the SMC protocol and liked it, pls send SOL or any valuable SPL cryptocurrency to the Smart Money Capital Treasury wallet (8CzQcMERqyZRUE6DTGophorgy46gqaSWqDmLmUo2LjzJ) to manifest your gratitude. Thanks.
-
 ## Introduction
 
-SMC Protocol is a personal hedge fund framework built on Solana, designed to let individuals manage, grow, and tokenize their trading performance. This platform blends active treasury management with community-facing utility (lol) by combining asset trading, financial reporting, and access to daily financial content.
+SMC Protocol is a personal hedge fund framework built on Solana, designed to let individuals manage, grow, and tokenize their trading performance. This platform blends active treasury management with community-facing utility by combining asset trading, financial reporting, and access to daily financial content.
+
+> **IMPORTANT NOTE**: This is a fairly new project and is still in development. Some features are still in beta. You may need to make adjustments to fit your specific requirements.
 
 ## Features
 
-- **Personal Hedge Fund**: Create and manage your own treasury to optimize for growth, focusing on promising crypto assets (aka top blasting shitters).
-- **Transparent NAV**: Live updates of your fund's Net Asset Value and portfolio holdings (you'll either need a Birdeye API key and a paid Birdeye subscription or you can manually track your holdings using the admin panel).
+- **Personal Hedge Fund**: Create and manage your own treasury to optimize for growth, focusing on promising crypto assets.
+- **Transparent NAV**: Live updates of your fund's Net Asset Value and portfolio holdings through either API integration or manual tracking via the admin panel.
 - **Token-Gated Financial Content**: Allow users holding your token (or paying in SOL) to access exclusive financial research articles.
 - **Open Market Speculation**: Make your token freely tradable on DEXes, enabling organic price discovery.
-- **Automated Financial Publishing**: Leverage cutting-edge AI (LLMs) to automate the generation of high-quality financial articles daily (you'll need an API key and some money for this).
+- **Automated Financial Publishing**: Leverage AI to automate the generation of high-quality financial articles.
 
 ## Tech Stack
 
@@ -32,21 +30,23 @@ Create a `.env` file in the root directory with the following variables:
 # Database connection string
 DATABASE_URL="postgresql://username:password@localhost:5432/dbname?schema=public"
 
-# Solana RPC URL
+# Solana RPC URL (use a provider like Helius, QuickNode, or the public endpoint)
 SOLANA_RPC_URL="https://api.mainnet-beta.solana.com"
 
-# OpenAI API key for article generation
+# OpenAI API key for article generation (optional)
 OPENAI_API_KEY="your-openai-api-key"
 
-# Birdeye API key for article generation
+# Birdeye API key for token price data (optional)
 BIRDEYE_API_KEY="your-birdeye-api-key"
 
-# Treasury wallet public key
+# Your treasury wallet public key
 TREASURY_WALLET_PUBKEY="your-treasury-wallet-public-key"
 
-# Your fund's token mint address
+# Your fund's token mint address (if you've created one)
 TOKEN_MINT="your-token-mint-address"
 ```
+
+You can find a sample environment file at `example.env` that you can rename to `.env` and update with your values.
 
 ## Getting Started
 

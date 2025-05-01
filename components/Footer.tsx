@@ -72,15 +72,7 @@ const Footer: FC = () => {
             <div className="flex flex-row items-center justify-center gap-2">
               <span className="font-bold text-[#0e3d64] text-sm sm:text-base mr-6" style={{ fontWeight: 700 }}>Connect with us:</span>
               <div className="flex items-center gap-2 sm:gap-4">
-                <a 
-                  href="https://twitter.com/smartmoneycap" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="no-underline font-bold text-[#0e3d64] text-sm sm:text-base"
-                >
-                  Twitter.com
-                </a>
-                <span className="text-[#0e3d64] mx-1 sm:mx-2">|</span>
+                {/* Replace with your own social media links */}
                 <a 
                   href="https://github.com/prinzbtc/smc-protocol" 
                   target="_blank" 
@@ -97,10 +89,10 @@ const Footer: FC = () => {
         {/* Copyright */}
         <div className="text-center">
           <p className="text-xs sm:text-sm text-[#0e3d64] mt-4 mb-2">
-            Smart Money Capital is a decentralized personal hedge fund protocol built on Solana.
+            SMC Protocol is a framework for creating decentralized personal hedge funds on Solana.
           </p>
           <p className="text-xs sm:text-sm text-[#0e3d64]">
-            &copy; {currentYear} Smart Money Capital. All rights reserved.
+            &copy; {currentYear} SMC Protocol. All rights reserved.
           </p>
         </div>
       </div>

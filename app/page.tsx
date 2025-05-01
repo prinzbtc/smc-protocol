@@ -103,6 +103,32 @@ export default function Home() {
       {/* Main Content */}
       <section className="py-12 bg-transparent">
         <div className="w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Welcome Message */}
+          <div className="retro-container mx-4 mb-8">
+            <div className="retro-header">
+              Welcome to SMC Protocol
+            </div>
+            <div className="p-8">
+              <h2 className="text-xl font-bold text-[#0e3d64] mb-4">Your Personal Hedge Fund Framework</h2>
+              <p className="text-[#0e3d64] mb-4">
+                SMC Protocol is an open-source framework that allows anyone to create and manage their own personal hedge fund on Solana.
+                This template provides everything you need to get started: treasury management, content publishing, and token-gating capabilities.
+              </p>
+              <p className="text-[#0e3d64] mb-4">
+                To customize this for your own fund:
+              </p>
+              <ul className="list-disc list-inside text-[#0e3d64] mb-4 ml-4">
+                <li className="mb-2">Update branding elements with your fund's name and logo</li>
+                <li className="mb-2">Configure your treasury wallet address in the environment variables</li>
+                <li className="mb-2">Create and publish your own financial content</li>
+                <li className="mb-2">Deploy to your preferred hosting provider</li>
+              </ul>
+              <p className="text-[#0e3d64]">
+                Explore the documentation to learn more about customizing and extending the framework.
+              </p>
+            </div>
+          </div>
+          
           <div className="flex flex-col md:flex-row gap-8 mx-4">
             {/* Publications Section (2/3 width) */}
             <div className="w-full md:w-2/3">

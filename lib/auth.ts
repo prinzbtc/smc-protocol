@@ -5,16 +5,19 @@ import nacl from 'tweetnacl';
 import bs58 from 'bs58';
 
 // List of authorized admin wallet addresses
-export const ADMIN_WALLETS = [
-  '58cPXoxj6f4VnNs8SYirXifURsvqAp8BJdw26UieVuiB', // Your wallet
+// IMPORTANT: Replace this with your own wallet address to gain admin access
+// You can add multiple wallet addresses for different admins
+export const ADMIN_WALLETS: string[] = [
+  // Example: '58cPXoxj6f4VnNs8SYirXifURsvqAp8BJdw26UieVuiB', 
+  // Add your wallet address here to gain admin access
 ];
 
 // JWT secret - in production, use environment variable
-const JWT_SECRET = process.env.JWT_SECRET || 'smart-money-capital-jwt-secret';
+const JWT_SECRET = process.env.JWT_SECRET || 'smc-protocol-jwt-secret';
 const SESSION_EXPIRY = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
 // Auth message that users will sign
-export const AUTH_MESSAGE = `Sign this message to authenticate with Smart Money Capital.\n\nThis signature will not trigger any blockchain transaction or cost any gas fees.\n\nNonce: `;
+export const AUTH_MESSAGE = `Sign this message to authenticate with your SMC Protocol fund.\n\nThis signature will not trigger any blockchain transaction or cost any gas fees.\n\nNonce: `;
 
 // Check if a wallet address is an admin
 export function isAdmin(walletAddress: string | null | undefined): boolean {

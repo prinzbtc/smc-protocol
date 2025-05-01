@@ -50,15 +50,44 @@ const TreasuryDashboard: React.FC = () => {
     return `${((value / total) * 100).toFixed(2)}%`;
   };
 
-  // Fetch treasury data from our backend API (which handles SOL and USDC caching)
+  // Fetch treasury data from our backend API
   useEffect(() => {
     const fetchTreasuryData = async () => {
       try {
         setIsLoading(true);
         
-        // Get data from our API (which now includes cached SOL and USDC data)
+        // Get data from our API
         const response = await axios.get('/api/treasury/balances');
-        setTreasuryData(response.data);
+        
+        // If no data is returned, create sample data for demonstration
+        if (!response.data || !response.data.tokens || response.data.tokens.length === 0) {
+          // This is sample data that will be shown if no real data is configured
+          setTreasuryData({
+            address: 'Configure your treasury wallet address in .env',
+            nav: 10000,
+            tokens: [
+              {
+                mint: 'So11111111111111111111111111111111111111112',
+                symbol: 'SOL',
+                name: 'Solana',
+                amount: 100,
+                usdValue: 6000,
+                color: '#9945FF'
+              },
+              {
+                mint: USDC_MINT,
+                symbol: 'USDC',
+                name: 'USD Coin',
+                amount: 4000,
+                usdValue: 4000,
+                color: '#2775CA'
+              }
+            ]
+          });
+        } else {
+          setTreasuryData(response.data);
+        }
+        
         setError(null);
       } catch (error) {
         console.error('Error fetching treasury data:', error);

@@ -13,8 +13,14 @@ const DocsPage: React.FC = () => {
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-4 text-[#0e3d64]">Documentation</h1>
           <p className="text-xl text-[#0e3d64]">
-            Learn about Smart Money Capital, the protocol, and tokenomics.
+            Learn about the SMC Protocol framework and how to customize it for your fund.
           </p>
+          {/* Edit notice for users */}
+          <div className="bg-blue-50 border border-blue-200 rounded p-4 mt-4">
+            <h3 className="font-bold text-[#0e3d64] mb-2">⚠️ Customization Required</h3>
+            <p className="text-[#0e3d64] mb-2">This documentation provides an overview of the SMC Protocol framework. You should customize it with information specific to your fund.</p>
+            <p className="text-[#0e3d64] mt-2 text-sm">Edit this file at: <code className="bg-gray-100 px-1 rounded">/app/docs/page.tsx</code></p>
+          </div>
         </div>
         
         {/* GitBook-style layout with side panel and content */}
@@ -33,13 +39,19 @@ const DocsPage: React.FC = () => {
                   onClick={() => setActiveTab('protocol')}
                   className={`text-left px-4 py-2 rounded font-medium ${activeTab === 'protocol' ? 'bg-[#0e3d64] text-white' : 'text-[#0e3d64] hover:bg-gray-100'}`}
                 >
-                  SMC Protocol
+                  Framework Guide
                 </button>
                 <button 
                   onClick={() => setActiveTab('tokenomics')}
                   className={`text-left px-4 py-2 rounded font-medium ${activeTab === 'tokenomics' ? 'bg-[#0e3d64] text-white' : 'text-[#0e3d64] hover:bg-gray-100'}`}
                 >
-                  Tokenomics
+                  Fund Tokenomics
+                </button>
+                <button 
+                  onClick={() => setActiveTab('customization')}
+                  className={`text-left px-4 py-2 rounded font-medium ${activeTab === 'customization' ? 'bg-[#0e3d64] text-white' : 'text-[#0e3d64] hover:bg-gray-100'}`}
+                >
+                  Customization
                 </button>
               </div>
             </div>
@@ -408,11 +420,121 @@ const DocsPage: React.FC = () => {
                 {/* CTA Section */}
                 <div className="bg-[#e6eef5] rounded-lg p-8 text-center">
                   <h3 className="text-2xl font-bold text-[#0e3d64] mb-4">
-                    Ready to Join Smart Money Capital?
+                    Ready to Launch Your Fund?
                   </h3>
                   <p className="text-[#0e3d64] mb-6 max-w-3xl mx-auto">
-                    Connect your wallet to access exclusive financial content or explore the treasury dashboard to see our performance.
+                    Customize this framework to create your own personal hedge fund on Solana. Connect your wallet to access the admin dashboard and start building your fund.
                   </p>
+                </div>
+              </div>
+            )}
+            
+            {/* Customization Tab Content */}
+            {activeTab === 'customization' && (
+              <div>
+                <h2 className="text-3xl font-bold mb-8 text-[#0e3d64]">Customizing Your Fund</h2>
+                
+                <div className="space-y-10">
+                  {/* Getting Started */}
+                  <div>
+                    <h3 className="text-2xl font-bold mb-4 text-[#0e3d64]">Getting Started</h3>
+                    <p className="text-[#0e3d64] mb-4">
+                      The SMC Protocol framework is designed to be easily customizable. Follow these steps to adapt it for your own fund:
+                    </p>
+                    
+                    <ol className="list-decimal list-inside space-y-4 text-[#0e3d64] ml-4">
+                      <li>
+                        <span className="font-bold">Configure Environment Variables</span>
+                        <p className="ml-6 mt-1">Rename <code className="bg-gray-100 px-1 rounded">example.env</code> to <code className="bg-gray-100 px-1 rounded">.env</code> and update the values with your own configuration, especially your treasury wallet address.</p>
+                      </li>
+                      
+                      <li>
+                        <span className="font-bold">Update Admin Access</span>
+                        <p className="ml-6 mt-1">Edit <code className="bg-gray-100 px-1 rounded">/lib/auth.ts</code> to add your wallet address to the <code className="bg-gray-100 px-1 rounded">ADMIN_WALLETS</code> array.</p>
+                      </li>
+                      
+                      <li>
+                        <span className="font-bold">Customize Branding</span>
+                        <p className="ml-6 mt-1">Update the logo, colors, and fund name in the Navbar and Footer components.</p>
+                      </li>
+                      
+                      <li>
+                        <span className="font-bold">Update Content</span>
+                        <p className="ml-6 mt-1">Modify the About page and Documentation to reflect your fund's mission, vision, and strategy.</p>
+                      </li>
+                    </ol>
+                  </div>
+                  
+                  {/* Key Files to Modify */}
+                  <div>
+                    <h3 className="text-2xl font-bold mb-4 text-[#0e3d64]">Key Files to Modify</h3>
+                    
+                    <div className="space-y-4 ml-4">
+                      <div>
+                        <p className="font-bold text-[#0e3d64]">Branding and Navigation</p>
+                        <ul className="list-disc list-inside ml-4 text-[#0e3d64]">
+                          <li><code className="bg-gray-100 px-1 rounded">/components/Navbar.tsx</code> - Update logo and navigation links</li>
+                          <li><code className="bg-gray-100 px-1 rounded">/components/Footer.tsx</code> - Update footer content and links</li>
+                          <li><code className="bg-gray-100 px-1 rounded">/public/</code> - Add your own logo and favicon</li>
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <p className="font-bold text-[#0e3d64]">Content Pages</p>
+                        <ul className="list-disc list-inside ml-4 text-[#0e3d64]">
+                          <li><code className="bg-gray-100 px-1 rounded">/app/page.tsx</code> - Update homepage content</li>
+                          <li><code className="bg-gray-100 px-1 rounded">/app/about/page.tsx</code> - Customize about page</li>
+                          <li><code className="bg-gray-100 px-1 rounded">/app/docs/page.tsx</code> - Update documentation</li>
+                        </ul>
+                      </div>
+                      
+                      <div>
+                        <p className="font-bold text-[#0e3d64]">Treasury Management</p>
+                        <ul className="list-disc list-inside ml-4 text-[#0e3d64]">
+                          <li><code className="bg-gray-100 px-1 rounded">/app/treasury/page.tsx</code> - Customize treasury dashboard</li>
+                          <li><code className="bg-gray-100 px-1 rounded">/app/admin/treasury/page.tsx</code> - Modify admin treasury management</li>
+                          <li><code className="bg-gray-100 px-1 rounded">/app/api/treasury/balances/route.ts</code> - Update API for treasury data</li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Deployment */}
+                  <div>
+                    <h3 className="text-2xl font-bold mb-4 text-[#0e3d64]">Deployment</h3>
+                    <p className="text-[#0e3d64] mb-4">
+                      Once you've customized the framework for your fund, you can deploy it to your preferred hosting provider:
+                    </p>
+                    
+                    <ul className="list-disc list-inside ml-4 text-[#0e3d64] space-y-2">
+                      <li>Vercel (recommended for Next.js applications)</li>
+                      <li>Netlify</li>
+                      <li>AWS Amplify</li>
+                      <li>Any hosting provider that supports Next.js applications</li>
+                    </ul>
+                    
+                    <p className="text-[#0e3d64] mt-4">
+                      Make sure to set up your environment variables in your hosting provider's dashboard.
+                    </p>
+                  </div>
+                </div>
+                
+                {/* CTA Section */}
+                <div className="bg-[#e6eef5] rounded-lg p-8 text-center mt-10">
+                  <h3 className="text-2xl font-bold text-[#0e3d64] mb-4">
+                    Need Help Customizing?
+                  </h3>
+                  <p className="text-[#0e3d64] mb-6 max-w-3xl mx-auto">
+                    Check out the GitHub repository for more detailed documentation and examples.
+                  </p>
+                  <a 
+                    href="https://github.com/prinzbtc/smc-protocol" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="inline-block bg-[#0e3d64] text-white px-6 py-3 rounded-lg font-medium hover:bg-[#0a2d4a] transition-colors"
+                  >
+                    View on GitHub
+                  </a>
                 </div>
               </div>
             )}
