@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
+import { sampleArticles } from '../sample-data';
 
 // GET /api/articles/[slug] - Get article by slug
 export async function GET(
@@ -10,20 +11,37 @@ export async function GET(
     // Ensure params is awaited before using it
     const slug = params?.slug;
     
-    const article = await prisma.article.findUnique({
-      where: {
-        slug,
-      },
-    });
-
-    if (!article) {
-      return NextResponse.json(
-        { error: 'Article not found' },
-        { status: 404 }
-      );
+    // Check if the slug matches our sample article
+    const sampleArticle = sampleArticles.find(article => article.slug === slug);
+    if (sampleArticle) {
+      return NextResponse.json(sampleArticle);
     }
-
-    return NextResponse.json(article);
+    
+    try {
+      const article = await prisma.article.findUnique({
+        where: {
+          slug,
+        },
+      });
+  
+      if (!article) {
+        return NextResponse.json(
+          { error: 'Article not found' },
+          { status: 404 }
+        );
+      }
+  
+      return NextResponse.json(article);
+    } catch (dbError) {
+      console.error('Database error, checking for sample article:', dbError);
+      
+      // If there's a database error but we have a matching sample article, return that
+      if (sampleArticle) {
+        return NextResponse.json(sampleArticle);
+      }
+      
+      throw dbError; // Re-throw if no sample article matches
+    }
   } catch (error) {
     console.error('Error fetching article:', error);
     return NextResponse.json(

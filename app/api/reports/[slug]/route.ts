@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
+import { sampleReports } from '../sample-data';
 
 // GET /api/reports/[slug] - Get report by slug
 export async function GET(
@@ -10,20 +11,37 @@ export async function GET(
     // Properly await the params to fix the warning
     const { slug } = context.params;
     
-    const report = await prisma.report.findUnique({
-      where: {
-        slug,
-      },
-    });
-
-    if (!report) {
-      return NextResponse.json(
-        { error: 'Report not found' },
-        { status: 404 }
-      );
+    // Check if the slug matches our sample report
+    const sampleReport = sampleReports.find(report => report.slug === slug);
+    if (sampleReport) {
+      return NextResponse.json(sampleReport);
     }
-
-    return NextResponse.json(report);
+    
+    try {
+      const report = await prisma.report.findUnique({
+        where: {
+          slug,
+        },
+      });
+  
+      if (!report) {
+        return NextResponse.json(
+          { error: 'Report not found' },
+          { status: 404 }
+        );
+      }
+  
+      return NextResponse.json(report);
+    } catch (dbError) {
+      console.error('Database error, checking for sample report:', dbError);
+      
+      // If there's a database error but we have a matching sample report, return that
+      if (sampleReport) {
+        return NextResponse.json(sampleReport);
+      }
+      
+      throw dbError; // Re-throw if no sample report matches
+    }
   } catch (error) {
     console.error('Error fetching report:', error);
     return NextResponse.json(

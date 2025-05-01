@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import prisma from '@/lib/prisma';
+import { sampleArticles } from './sample-data';
 
 // GET /api/articles - Get all articles
 export async function GET(request: NextRequest) {
@@ -14,27 +15,39 @@ export async function GET(request: NextRequest) {
     if (category) filter.category = category;
     if (isPremium !== null) filter.isPremium = isPremium === 'true';
     
-    const articles = await prisma.article.findMany({
-      where: filter,
-      orderBy: {
-        publishedAt: 'desc',
-      },
-      take: limit,
-      select: {
-        id: true,
-        title: true,
-        slug: true,
-        summary: true,
-        category: true,
-        isPremium: true,
-        thumbnailUrl: true,
-        publishedAt: true,
-        updatedAt: true,
-        // Don't include full content in list view
-      },
-    });
-    
-    return NextResponse.json(articles);
+    try {
+      const articles = await prisma.article.findMany({
+        where: filter,
+        orderBy: {
+          publishedAt: 'desc',
+        },
+        take: limit,
+        select: {
+          id: true,
+          title: true,
+          slug: true,
+          summary: true,
+          category: true,
+          isPremium: true,
+          thumbnailUrl: true,
+          publishedAt: true,
+          updatedAt: true,
+          // Don't include full content in list view
+        },
+      });
+      
+      // If no articles are found in the database, return the sample articles
+      if (articles.length === 0) {
+        console.log('No articles found in database, returning sample articles');
+        return NextResponse.json(sampleArticles);
+      }
+      
+      return NextResponse.json(articles);
+    } catch (dbError) {
+      console.error('Database error, falling back to sample data:', dbError);
+      // If there's a database error, fall back to sample data
+      return NextResponse.json(sampleArticles);
+    }
   } catch (error) {
     console.error('Error fetching articles:', error);
     return NextResponse.json(
