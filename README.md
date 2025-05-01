@@ -1,16 +1,20 @@
 # SMC Protocol
 
-A Framework to create your own personal hedge fund on Solana.
+IMPORTANT NOTE : This is a fairly new project and is still in development. Some features are still a bit shaky. You'll probably need to tweak a thing or two to get it working. 
 
-SMC Protocol is a decentralized personal hedge fund framework built on Solana, designed to empower individuals to manage, grow, and tokenize their trading performance. This platform seamlessly blends active treasury management with community-facing utility by combining asset trading, transparent financial reporting, and exclusive access to daily financial content.
+ALSO : If you managed to use the SMC protocol and liked it, pls send SOL or any valuable SPL cryptocurrency to the Smart Money Capital Treasury wallet (8CzQcMERqyZRUE6DTGophorgy46gqaSWqDmLmUo2LjzJ) to manifest your gratitude. Thanks.
+
+## Introduction
+
+SMC Protocol is a personal hedge fund framework built on Solana, designed to let individuals manage, grow, and tokenize their trading performance. This platform blends active treasury management with community-facing utility (lol) by combining asset trading, financial reporting, and access to daily financial content.
 
 ## Features
 
-- **Personal Hedge Fund**: Create and manage your own treasury to optimize for growth, focusing on promising crypto assets.
-- **Transparent NAV**: Live updates of your fund's Net Asset Value and portfolio holdings.
-- **Token-Gated Financial Content**: Allow users holding your tokens (or paying in SOL) to access exclusive financial research articles.
-- **Open Market Speculation**: Make your tokens freely tradable on DEXes, enabling organic price discovery.
-- **Automated Financial Publishing**: Leverage cutting-edge AI (LLMs) to automate the generation of high-quality financial articles daily.
+- **Personal Hedge Fund**: Create and manage your own treasury to optimize for growth, focusing on promising crypto assets (aka top blasting shitters).
+- **Transparent NAV**: Live updates of your fund's Net Asset Value and portfolio holdings (you'll either need a Birdeye API key and a paid Birdeye subscription or you can manually track your holdings using the admin panel).
+- **Token-Gated Financial Content**: Allow users holding your token (or paying in SOL) to access exclusive financial research articles.
+- **Open Market Speculation**: Make your token freely tradable on DEXes, enabling organic price discovery.
+- **Automated Financial Publishing**: Leverage cutting-edge AI (LLMs) to automate the generation of high-quality financial articles daily (you'll need an API key and some money for this).
 
 ## Tech Stack
 
@@ -18,7 +22,7 @@ SMC Protocol is a decentralized personal hedge fund framework built on Solana, d
 - **Wallet Integration**: Solana Wallet Adapter (Phantom, Backpack, Solflare)
 - **Backend**: NextJS API routes, Prisma + PostgreSQL
 - **Smart Contracts**: SPL Token standard for your fund's token
-- **AI and Automation**: OpenAI GPT-4 API for article generation
+- **AI and Automation**: OpenAI GPT-4 API for article generation (or any other LLM API)
 
 ## Environment Variables
 
@@ -33,6 +37,9 @@ SOLANA_RPC_URL="https://api.mainnet-beta.solana.com"
 
 # OpenAI API key for article generation
 OPENAI_API_KEY="your-openai-api-key"
+
+# Birdeye API key for article generation
+BIRDEYE_API_KEY="your-birdeye-api-key"
 
 # Treasury wallet public key
 TREASURY_WALLET_PUBKEY="your-treasury-wallet-public-key"
@@ -57,14 +64,5 @@ This project uses Prisma with PostgreSQL. To set up the database:
 2. Update the DATABASE_URL in your `.env` file
 3. Run migrations: `npx prisma migrate dev`
 4. Generate Prisma client: `npx prisma generate`
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 

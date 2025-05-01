@@ -82,7 +82,7 @@ const Footer: FC = () => {
                 </a>
                 <span className="text-[#0e3d64] mx-1 sm:mx-2">|</span>
                 <a 
-                  href="https://github.com/smartmoneycapital" 
+                  href="https://github.com/prinzbtc/smc-protocol" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="no-underline font-bold text-[#0e3d64] text-sm sm:text-base"
